@@ -60,7 +60,7 @@ def return_book(request, book_id):
         return Response({"message": "This book is not issued to you"}, status.HTTP_400_BAD_REQUEST)
     book.available = True
     book.save()
-    booking_history.return_book = timezone.now()
+    booking_history.return_time = timezone.now()
     booking_history.save()
     return Response({"message": "Book is returned"}, status.HTTP_200_OK)
 
