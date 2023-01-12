@@ -9,7 +9,7 @@ BOOK_TYPES = (
 
 
 class Author(models.Model):
-    auther_name = models.CharField(max_length=255, blank=False)
+    name = models.CharField(max_length=255, blank=False)
 
 
 class Book(models.Model):

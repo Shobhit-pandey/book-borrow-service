@@ -20,7 +20,7 @@ class Book:
         return cls(
             id=model.id,
             name=model.name,
-            author=model.author__name,
+            author=model.author.name,
             type=model.type,
             available=model.available
         )
