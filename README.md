@@ -98,11 +98,12 @@ Response Status - 200 OK
 Response Body -
 {
     blocked: Boolean,
-    time : <datetime>
+    unblock_time : <datetime>
 }
 TestCases - 
 1. If book id is not present then return 404 Not Found.
 2. If book is booked by another user then return 400 Bad Request
+3. If user is not issued given book then user can issue book
 3. If book is available for current user then return blocked = False and current time 
 4. if book is only unavailable for current user then return unblock time 
 ```
