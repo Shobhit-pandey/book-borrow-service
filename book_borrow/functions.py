@@ -23,6 +23,6 @@ def book_availability_for_current_user(book: Book, user: User) -> BlockStatus:
     unblock_period_in_days = get_blocking_time_in_days(book)
     unblock_time = last_return_time + timedelta(days=unblock_period_in_days)
     current_time = timezone.now()
-    block_status.unblock_time = unblock_time
-    block_status.blocked = unblock_time <= current_time
+    block_status.unblock_time = unblock_time.strftime("%d-%B-%Y, %H:%M:%S")
+    block_status.blocked = unblock_time > current_time
     return block_status

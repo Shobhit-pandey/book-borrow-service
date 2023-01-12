@@ -1,3 +1,5 @@
+from dataclasses import asdict
+
 from django.contrib.auth.decorators import login_required
 from django.utils import timezone
 from rest_framework import status
@@ -79,4 +81,4 @@ def next_borrow_time(request, book_id):
         BookDataClass.get_from_model_object(book),
         UserDataClass.get_from_model_object(user),
     )
-    return Response(is_blocked_for_current_user, status=status.HTTP_200_OK)
+    return Response(asdict(is_blocked_for_current_user), status=status.HTTP_200_OK)
