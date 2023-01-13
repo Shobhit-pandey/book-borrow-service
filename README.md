@@ -62,21 +62,22 @@ Response Body
 ]
 Response Status - 200 OK
 
-TestCases - 
-1. If author params is not provided or empty string, all books should be returned.
-2. Only available books should be returned.
+TestCases -
+1. Only available books should be returned. 
+2. If author params is not provided or empty string, all available books should be returned.
 3. If author params is provided then only books with that author should be returned.
-4. If author provided is not present then return empty list of books.
+4. If author params provided is not present then return empty list of books.
+
 ```
 ### /borrow-book/<book-id>
 ```
 Request Type - `PUT`
 Response Status - 200 OK
 TestCases - 
-1. If book is not available then return 400 Bad Request.
-2. If book id is not present then return 404 Not Found.
+1. If book id is not present then return 404 Not Found.
+2. If book is not available to issue then return 400 Bad Request.
 3. If book is available but locked for current user then return 400 Bad Request.
-4. If book is available and unlocked then issue the book for logged in user and return 200 OK.
+4. If book is available then issue the book for logged in user and return 200 OK.
 5. If user is try to book after locking time, user should be able to issue the book again.
 ```
 ### /return-book/<book-id>
@@ -102,8 +103,10 @@ Response Body -
 }
 TestCases - 
 1. If book id is not present then return 404 Not Found.
-2. If book is booked by another user then return 400 Bad Request
-3. If user is not issued given book then user can issue book
-3. If book is available for current user then return blocked = False and current time 
-4. if book is only unavailable for current user then return unblock time 
+2. If book is issued by another user and user never booked this book in past then return 'return time' of book.
+3. If book is issued by another user and user also returned this book in past then return maximum of 'return time' 
+   by another user and unblock time of book to user.
+4. If book is available and user never issued this book then return current time. 
+5. If book is avilable and user also issued this book in past then return unblock time of book or current time 
+   whichever is latest.
 ```
