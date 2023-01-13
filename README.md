@@ -65,13 +65,16 @@ Response Status - 200 OK
 TestCases -
 1. Only available books should be returned. 
 2. If author params is not provided or empty string, all available books should be returned.
-3. If author params is provided then only books with that author should be returned.
+3. If author params is provided then only available books with that author should be returned.
 4. If author params provided is not present then return empty list of books.
 
 ```
 ### /borrow-book/<book-id>
 ```
 Request Type - `PUT`
+Request Body - {
+    username: <username>
+}
 Response Status - 200 OK
 TestCases - 
 1. If book id is not present then return 404 Not Found.
@@ -83,6 +86,9 @@ TestCases -
 ### /return-book/<book-id>
 ```
 Request Type - `PUT`
+Request Body - {
+    username: <username>
+}
 Response Status - 200 OK
 TestCases - 
 1. If book id is not present then return 404 Not Found.
@@ -95,10 +101,12 @@ TestCases -
 ### /next-borrow-time/<book-id>
 ```
 Request Type - `GET`
+Request Body - {
+    username: <username>
+}
 Response Status - 200 OK
 Response Body -
 {
-    blocked: Boolean,
     unblock_time : <datetime>
 }
 TestCases - 
