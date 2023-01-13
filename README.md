@@ -114,7 +114,8 @@ TestCases -
 2. If book is issued by another user and user never booked this book in past then return 'return time' of book.
 3. If book is issued by another user and user also returned this book in past then return maximum of 'return time' 
    by another user and unblock time of book to user.
-4. If book is available and user never issued this book then return current time. 
-5. If book is avilable and user also issued this book in past then return unblock time of book or current time 
+4. If book is issued by same user then return block time which will be added on the top of future return time.
+5. If book is available and user never issued this book then return current time. 
+6. If book is avilable and user also issued this book in past then return unblock time of book or current time 
    whichever is latest.
 ```
