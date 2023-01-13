@@ -80,7 +80,7 @@ TestCases -
 1. If book id is not present then return 404 Not Found.
 2. If book is not available to issue then return 400 Bad Request.
 3. If book is available but locked for current user then return 400 Bad Request.
-4. If book is available then issue the book for logged in user and return 200 OK.
+4. If book is available and user is booking for first time then issue the book for logged in user and return 200 OK.
 5. If user is try to book after locking time, user should be able to issue the book again.
 ```
 ### /return-book/<book-id>
