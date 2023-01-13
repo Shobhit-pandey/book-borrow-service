@@ -1,5 +1,6 @@
 import random
 
+from book_borrow.constant import BOOK_TYPE
 from book_borrow.models import Book, Author
 
 book_data = [
@@ -204,5 +205,4 @@ def add_books():
     for book in book_data:
         author = Author.objects.create(name=book['author'])
         random_type = random.randint(0, 2)
-        book_type = ["Paperbacks", "Hardcover", "Handmade"]
-        Book.objects.create(author=author, name=book['name'], type=book_type[random_type])
+        Book.objects.create(author=author, name=book['name'], type=BOOK_TYPE[random_type])

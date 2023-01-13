@@ -1,10 +1,18 @@
 from dataclasses import dataclass
+from datetime import datetime
 
 
 @dataclass
 class BlockStatus:
     blocked: bool
-    unblock_time: str
+    unblock_time: datetime
+
+
+@dataclass
+class BookNextAvailability:
+    name: str
+    current_booked_by: str
+    available_at: datetime
 
 
 @dataclass
