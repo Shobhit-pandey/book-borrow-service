@@ -141,3 +141,9 @@ coverage html #This will create folder and we can open index.html in browser to 
 ### Last Test Coverage
 
 ![img.png](img.png)
+
+## Adding new User, Book, Author
+```
+1. Run the server
+2. Go to URL - http://localhost/admin/
+```
