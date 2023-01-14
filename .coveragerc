@@ -1,0 +1,10 @@
+[run]
+branch = True
+omit =
+    book_borrow/asgi.py
+    book_borrow/settings.py
+    book_borrow/data_entry.py
+    book_borrow/wsgi.py
+    book_borrow/migrations/*
+    book_borrow/tests/*
+    manage.py

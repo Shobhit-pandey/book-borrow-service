@@ -119,3 +119,25 @@ TestCases -
 6. If book is avilable and user also issued this book in past then return unblock time of book or current time 
    whichever is latest.
 ```
+
+## Staring the Server
+
+```shell
+python manage migrate
+python manage runserver
+```
+
+## Testing Unit Tests
+```shell
+python manage test
+```
+
+## Test Coverage
+```shell
+coverage run --source='.' manage.py test 
+coverage report #This is show coverage in shell
+coverage html #This will create folder and we can open index.html in browser to access
+```
+### Last Test Coverage
+
+![img.png](img.png)
