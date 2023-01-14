@@ -26,8 +26,6 @@ def get_all_books(request):
 def borrow_book(request, book_id):
     username = request.data.get('username', None)
     user = User.objects.filter(username=username).first()
-    if not user:
-        return Response({"message": "Invalid User"}, status=status.HTTP_400_BAD_REQUEST)
     book = Book.objects.filter(id=book_id).first()
     if not book:
         return Response(status=status.HTTP_404_NOT_FOUND)
@@ -51,8 +49,6 @@ def borrow_book(request, book_id):
 def return_book(request, book_id):
     username = request.data.get('username', None)
     user = User.objects.filter(username=username).first()
-    if not user:
-        return Response({"message": "Invalid User"}, status=status.HTTP_400_BAD_REQUEST)
     book = Book.objects.filter(id=book_id).first()
     if not book:
         return Response(status=status.HTTP_404_NOT_FOUND)
@@ -70,10 +66,8 @@ def return_book(request, book_id):
 
 @api_view(['GET'])
 def next_borrow_time(request, book_id):
-    username = request.data.get('username', None)
+    username = request.data.get('username', None) or request.GET.get('username', None)
     user = User.objects.filter(username=username).first()
-    if not user:
-        return Response({"message": "Invalid User"}, status=status.HTTP_400_BAD_REQUEST)
     book = Book.objects.filter(id=book_id).first()
     if not book:
         return Response(status=status.HTTP_404_NOT_FOUND)
