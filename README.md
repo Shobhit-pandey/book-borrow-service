@@ -29,7 +29,7 @@ type - Book Type choices from  (Paperbacks,Paperbacks,Handmade)
 #### This model is used to store details of authors
 ```
 id - Primary Key
-name - Charayer Field with max length 255
+name - Character Field with max length 255
 ```
 
 
@@ -39,7 +39,7 @@ name - Charayer Field with max length 255
 id - Primary Key
 book - Foreign Key with Book Model
 user - Foreign Key with User Model
-issue_time - Date time of issueing the book (Can't Modify after issuing)
+issue_time - Date time of borrowing the book (Can't Modify after borrow)
 return_time - Date time of returning the book
 ```
 
