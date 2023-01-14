@@ -60,7 +60,7 @@ Response Body
     },
     ...
 ]
-Response Status - 200 OK
+Response Status - 200 OK for successful
 
 TestCases -
 1. Only available books should be returned. 
@@ -75,7 +75,7 @@ Request Type - `PUT`
 Request Body - {
     username: <username>
 }
-Response Status - 200 OK
+Response Status - 200 OK for successful
 TestCases - 
 1. If book id is not present then return 404 Not Found.
 2. If book is not available to issue then return 400 Bad Request.
@@ -89,7 +89,7 @@ Request Type - `PUT`
 Request Body - {
     username: <username>
 }
-Response Status - 200 OK
+Response Status - 200 OK for successful
 TestCases - 
 1. If book id is not present then return 404 Not Found.
 2. If book is available then return 400 Bad Request.
@@ -104,7 +104,7 @@ Request Type - `GET`
 Request Body - {
     username: <username>
 }
-Response Status - 200 OK
+Response Status - 200 OK for successful
 Response Body -
 {
     unblock_time : <datetime>
